@@ -1010,10 +1010,10 @@
   resolved "https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@polygonjs/polygonjs@^1.1.251":
-  version "1.1.251"
-  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.1.251.tgz#70ce4a48d9ff478854a0fa0f2258631e24877688"
-  integrity sha512-v5MT6wNAOtJccuZq/SesqaVTVblr1eFETk4E9RcuPv02N5axADbuX7HA9UIjW7t8RjVAmYnMTgb/CNA83/8qvA==
+"@polygonjs/polygonjs@^1.1.252":
+  version "1.1.252"
+  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.1.252.tgz#045d78195046fe677d2c3944b3a59b58000365dc"
+  integrity sha512-niziXrb2irhULFtlsbI8cT/+bknon80tI1Bm9wenqkhFSw53+UVCJVW5/ZXeePvg+p3lUVuy2NoINZBiGbfkPw==
   dependencies:
     "@types/three" "0.139.0"
     chromotome "1.20.0"
