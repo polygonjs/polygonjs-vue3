@@ -1,0 +1,12 @@
+.vscode/
+config/
+dist/demo.html
+node_modules/
+public/
+src/
+tests/
+.eslintrc.js
+babel.config.js
+tsconfig.json
+vue.config.js
+yarn.lock

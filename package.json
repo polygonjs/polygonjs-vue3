@@ -1,13 +1,14 @@
 {
-  "name": "polygonjs-vue3",
+  "name": "@polygonjs/vue3",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/@polygonjs/vue3.common",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "build": "node config/createVueSimlink.js && vue-cli-service build --target lib --name @polygonjs/vue3 ./src/main.ts && node config/addTypings.js"
   },
   "dependencies": {
+    "@polygonjs/polygonjs": "^1.1.251",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },
