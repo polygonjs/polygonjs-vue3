@@ -31,7 +31,7 @@ interface LoadSceneOptions {
 }
 interface LoadedData {
   scene: PolyScene;
-  viewer: BaseViewerType;
+  viewer: BaseViewerType|undefined;
 }
 type LoadScene = (options: LoadSceneOptions) => Promise<LoadedData>;
 
@@ -79,7 +79,9 @@ export default defineComponent({
         ""
       );
       context.emit(sceneReady, scene);
+      if(viewer){
       context.emit(viewerMounted, viewer);
+      }
     }
     function onProgress(p:number){
       progress.value = p;
