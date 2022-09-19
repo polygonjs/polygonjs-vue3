@@ -93,6 +93,10 @@ export default defineComponent({
 			type: Boolean,
 			default: true,
 		},
+		posterExtension: {
+			type: String,
+			default: "png",
+		},
 		posterUrl: {
 			type: String,
 		},
@@ -223,7 +227,7 @@ export default defineComponent({
 		const posterUrl = computed(() => {
 			return (
 				props.posterUrl ||
-				`${props.baseUrl}/polygonjs/screenshots/scenes/${props.sceneName}/poster.jpg?v=3`
+				`${props.baseUrl}/polygonjs/screenshots/scenes/${props.sceneName}/poster.${props.posterExtension}`
 			);
 		});
 		const containerStyleObject = computed(() => {
