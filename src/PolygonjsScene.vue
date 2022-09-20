@@ -35,6 +35,7 @@ import { PolyScene } from "@polygonjs/polygonjs/dist/src/engine/scene/PolyScene"
 import { BaseViewerType } from "@polygonjs/polygonjs/dist/src/engine/viewers/_Base";
 import { SceneJsonExporterData } from "@polygonjs/polygonjs/dist/src/engine/io/json/export/Scene";
 import { PolyEventName } from "@polygonjs/polygonjs/dist/src/engine/poly/utils/PolyEventName";
+import { sanitizeUrl } from "@polygonjs/polygonjs/dist/src/core/UrlHelper";
 
 type ConfigureSceneData = (sceneData: SceneJsonExporterData) => void;
 
@@ -225,9 +226,9 @@ export default defineComponent({
 		// poster
 
 		const posterUrl = computed(() => {
-			return (
+			return sanitizeUrl(
 				props.posterUrl ||
-				`${props.baseUrl}/polygonjs/screenshots/scenes/${props.sceneName}/poster.${props.posterExtension}`
+					`${props.baseUrl}/polygonjs/screenshots/scenes/${props.sceneName}/poster.${props.posterExtension}`
 			);
 		});
 		const containerStyleObject = computed(() => {
