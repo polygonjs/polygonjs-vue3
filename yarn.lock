@@ -1020,10 +1020,10 @@
   resolved "https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@polygonjs/polygonjs@^1.2.23":
-  version "1.2.23"
-  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.2.23.tgz#165791b374b6533ed2d0aa095398c06f8d4986c5"
-  integrity sha512-lETSuSr4PZQll+fv7kE117EvNlEIPHqRw7ezYW9mDXTxfuOAzzQgvrDTNIDPjHR4/+yaDIf1uI69ECRNFhSirA==
+"@polygonjs/polygonjs@^1.2.30":
+  version "1.2.30"
+  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.2.30.tgz#8a9bb456f735ab2158cf29026ca12be5d995947c"
+  integrity sha512-byS2NrOX39PeB5QXaGS5ZA8/eVFkpsl32lgSe+vDjLXChPeWosAB4CKiE8gFexgcqb5yVSMEr8qptEdRSC15gg==
   dependencies:
     "@dimforge/rapier3d" "0.9.0"
     "@jscad/modeling" "2.9.3"
