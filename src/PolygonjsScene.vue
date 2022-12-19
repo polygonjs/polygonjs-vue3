@@ -127,7 +127,7 @@ export default defineComponent({
 			default: false,
 		},
 	},
-	async setup(props, context) {
+	setup(props, context) {
 		const sceneContainer: Ref<HTMLElement | null> = ref(null);
 		const posterContainerRef: Ref<HTMLElement | null> = ref(null);
 		const progressBarRef: Ref<HTMLElement | null> = ref(null);
