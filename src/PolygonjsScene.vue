@@ -1,14 +1,14 @@
 <template>
 	<div class="polygonjs-scene-container">
 		<div
-			v-show="displayLoadingPoster"
+			v-if="displayLoadingPoster"
 			ref="posterContainerRef"
 			class="poster-container"
 			:style="containerStyleObject"
 			:class="fadeableElementClassObject"
 		></div>
 		<div
-			v-show="displayLoadingProgressBar"
+			v-if="displayLoadingProgressBar"
 			ref="progressBarRef"
 			class="progress-bar"
 			:class="fadeableElementClassObject"
@@ -33,7 +33,10 @@ import {
 } from "vue";
 import { PolyScene } from "@polygonjs/polygonjs/dist/src/engine/scene/PolyScene";
 import { BaseViewerType } from "@polygonjs/polygonjs/dist/src/engine/viewers/_Base";
-import { SceneJsonExporterData } from "@polygonjs/polygonjs/dist/src/engine/io/json/export/Scene";
+import {
+	SceneJsonExporterData,
+	SceneJsonExporterDataProperties,
+} from "@polygonjs/polygonjs/dist/src/engine/io/json/export/Scene";
 import { PolyEventName } from "@polygonjs/polygonjs/dist/src/engine/poly/utils/PolyEventName";
 import { sanitizeUrl } from "@polygonjs/polygonjs/dist/src/core/UrlHelper";
 
@@ -63,6 +66,7 @@ const viewerMountedEventName: string =
 const viewerReadyEventName: string =
 	PolyEventName.VIEWER_READY.toLowerCase().replace("poly", "");
 const sceneAvailableEventName = "sceneAvailable";
+const loadedDataBySceneName: Map<string, LoadedData> = new Map();
 
 export default defineComponent({
 	name: "Polygonjs-Scene",
@@ -76,7 +80,7 @@ export default defineComponent({
 	props: {
 		sceneName: {
 			type: String,
-			required: false,
+			required: true,
 		},
 		loadFunction: {
 			type: Function,
@@ -118,8 +122,12 @@ export default defineComponent({
 			type: String,
 			default: "",
 		},
+		keepAlive: {
+			type: Boolean,
+			default: false,
+		},
 	},
-	setup(props, context) {
+	async setup(props, context) {
 		const sceneContainer: Ref<HTMLElement | null> = ref(null);
 		const posterContainerRef: Ref<HTMLElement | null> = ref(null);
 		const progressBarRef: Ref<HTMLElement | null> = ref(null);
@@ -129,7 +137,6 @@ export default defineComponent({
 
 		async function loadScene() {
 			if (!sceneContainer.value) {
-				console.warn("sceneContainer not created");
 				return;
 			}
 
@@ -159,19 +166,30 @@ export default defineComponent({
 					context.emit(viewerReadyEventName, viewer);
 				}
 			});
-			const loadedData = await loadFunction({
-				onProgress,
-				domElement,
-				printWarnings: props.printWarnings,
-				cameraMaskOverride: props.cameraMaskOverride,
-				autoPlay: props.autoPlay,
-				configureSceneData,
-				sceneDataRoot: `${props.baseUrl}/polygonjs/scenes`,
-				assetsRoot: props.baseUrl,
-				libsRootPrefix: props.baseUrl,
-			});
-			scene = loadedData.scene;
-			viewer = loadedData.viewer;
+			let loadedData = loadedDataBySceneName.get(props.sceneName);
+			if (loadedData) {
+				loadedData.viewer?.mount(domElement);
+				scene = loadedData.scene;
+				viewer = loadedData.viewer;
+				_restart();
+			} else {
+				loadedData = await loadFunction({
+					onProgress,
+					domElement,
+					printWarnings: props.printWarnings,
+					cameraMaskOverride: props.cameraMaskOverride,
+					autoPlay: props.autoPlay,
+					configureSceneData,
+					sceneDataRoot: `${props.baseUrl}/polygonjs/scenes`,
+					assetsRoot: props.baseUrl,
+					libsRootPrefix: props.baseUrl,
+				});
+				if (props.keepAlive == true) {
+					loadedDataBySceneName.set(props.sceneName, loadedData);
+				}
+				scene = loadedData.scene;
+				viewer = loadedData.viewer;
+			}
 
 			context.emit(sceneAvailableEventName, scene);
 		}
@@ -195,12 +213,31 @@ export default defineComponent({
 			}
 		}
 
-		function disposeScene() {
+		function _restart() {
 			if (scene) {
-				scene.dispose();
+				scene.play();
 			}
 			if (viewer) {
-				viewer.dispose();
+				viewer.setAutoRender(true);
+			}
+		}
+
+		function disposeScene() {
+			if (scene) {
+				scene.pause();
+			}
+			if (viewer) {
+				viewer.setAutoRender(false);
+				viewer.unmount();
+			}
+			if (props.keepAlive == false) {
+				if (scene) {
+					scene.pause();
+					scene.dispose();
+				}
+				if (viewer) {
+					viewer.dispose();
+				}
 			}
 		}
 
@@ -262,8 +299,8 @@ export default defineComponent({
 	display: block;
 }
 /*
-  progress bar
-  */
+	progress bar
+	*/
 .progress-bar {
 	position: absolute;
 	top: 0px;
@@ -289,8 +326,8 @@ export default defineComponent({
 }
 
 /*
-  poster
-  */
+	poster
+	*/
 .poster-container {
 	position: absolute;
 	top: 0px;
@@ -303,8 +340,8 @@ export default defineComponent({
 	z-index: 10;
 }
 /*
-  common
-  */
+	common
+	*/
 .polygonjs-loader-visible {
 	opacity: 1;
 }

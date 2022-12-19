@@ -8,7 +8,7 @@
 		"build": "node config/createVueSimlink.js && vue-cli-service build --target lib --name @polygonjs/vue3 ./src/main.ts && node config/addTypings.js"
 	},
 	"dependencies": {
-		"@polygonjs/polygonjs": "^1.2.30",
+		"@polygonjs/polygonjs": "^1.2.67",
 		"core-js": "^3.8.3",
 		"vue": "^3.2.13"
 	},
