@@ -126,6 +126,10 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		lazyLoad: {
+			type: Boolean,
+			default: true,
+		},
 	},
 	setup(props, context) {
 		const sceneContainer: Ref<HTMLElement | null> = ref(null);
@@ -135,11 +139,15 @@ export default defineComponent({
 		let scene: PolyScene | undefined;
 		let viewer: BaseViewerType | undefined;
 
+		let _loadStarted = false;
 		async function loadScene() {
 			if (!sceneContainer.value) {
 				return;
 			}
-
+			if (_loadStarted) {
+				return;
+			}
+			_loadStarted = true;
 			const loadFunction = props.loadFunction as LoadScene;
 			const configureSceneData = props.configureSceneData as
 				| ConfigureSceneData
@@ -193,6 +201,32 @@ export default defineComponent({
 
 			context.emit(sceneAvailableEventName, scene);
 		}
+		function loadSceneWhenElementVisible() {
+			if (!sceneContainer.value) {
+				return;
+			}
+			const domElement = sceneContainer.value;
+			const observerOptions: IntersectionObserverInit = {
+				threshold: 0.0,
+			};
+			const onObserverChange: IntersectionObserverCallback = (
+				entries,
+				observer
+			) => {
+				entries.forEach((entry) => {
+					const isVisible: boolean = entry.isIntersecting;
+					if (isVisible) {
+						loadScene();
+						observer.unobserve(domElement);
+					}
+				});
+			};
+			let observer = new IntersectionObserver(
+				onObserverChange,
+				observerOptions
+			);
+			observer.observe(domElement);
+		}
 		function onProgress(p: number) {
 			progress.value = p;
 			context.emit("progress", p);
@@ -241,7 +275,13 @@ export default defineComponent({
 			}
 		}
 
-		onMounted(loadScene);
+		onMounted(() => {
+			if (props.lazyLoad) {
+				loadSceneWhenElementVisible();
+			} else {
+				loadScene();
+			}
+		});
 		onBeforeUnmount(disposeScene);
 
 		// style and classes
