@@ -348,6 +348,7 @@ export default defineComponent({
 	width: 100%;
 	height: 4px;
 	pointer-events: none;
+	z-index: 100;
 }
 .progress-bar-bar {
 	height: 100%;
