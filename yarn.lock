@@ -1080,10 +1080,10 @@
   resolved "https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@polygonjs/polygonjs@^1.4.14":
-  version "1.4.14"
-  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.4.14.tgz#1e663a4368726c3aa4459a7fa3ab89f342151e36"
-  integrity sha512-Le0EyK2yQOMg3LuVTK/xVpSHTQpAe0J3uq9ITX4VBbY5utSbt2eMJm7BWoLYLK5GWHaOvDLAvOz0NhnR4H/idA==
+"@polygonjs/polygonjs@^1.4.16":
+  version "1.4.16"
+  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.4.16.tgz#bffdd3ce90c80a8be0959450a67f5cab9896680b"
+  integrity sha512-5NDhzUS1K2iXwFKbeNz/lfJUkUU+c7mgC8iRLQ2r4UYP3F/N1du/haMLdaPgFTUOxI6KOJ7FWK5KPqBjYxV4cQ==
   dependencies:
     "@dimforge/rapier3d-compat" "0.11.1"
     "@jscad/modeling" "2.11.0"
@@ -1091,9 +1091,9 @@
     "@mediapipe/hands" "0.4.1646424915"
     "@types/mapbox-gl" "2.7.10"
     "@types/prettier" "2.7.2"
-    "@types/three" "0.149.0"
-    "@vue-reactivity/watch" "^0.2.0"
-    "@vue/reactivity" "3.2.47"
+    "@types/three" "0.152.1"
+    "@vue-reactivity/watch" "0.2.0"
+    "@vue/reactivity" "3.3.4"
     chromotome "1.20.0"
     gifuct-js "2.1.2"
     gsap "3.11.5"
@@ -1101,15 +1101,16 @@
     lodash-es "4.17.21"
     manifold-3d "2.1.0"
     mapbox-gl "2.13.0"
+    n8ao "1.4.3"
     opencascade.js "2.0.0-beta.94e2944"
     opentype.js "1.3.4"
-    postprocessing "6.30.2"
+    postprocessing "6.31.0"
     potpack "2.0.0"
-    prettier "2.8.6"
-    three "0.150.0"
+    prettier "2.8.8"
+    three "0.152.2"
     three-bvh-csg "0.0.5"
     three-gpu-pathtracer "0.0.15"
-    three-mesh-bvh "0.5.23"
+    three-mesh-bvh "0.6.0"
     three-subdivide "1.1.2"
     tone "14.7.77"
     web-ifc-three "0.0.125"
@@ -1156,6 +1157,11 @@
   version "0.2.0"
   resolved "https://registry.npmmirror.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
+
+"@tweenjs/tween.js@~18.6.4":
+  version "18.6.4"
+  resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-18.6.4.tgz#40a3d0a93647124872dec8e0fd1bd5926695b6ca"
+  integrity sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==
 
 "@types/body-parser@*":
   version "1.19.2"
@@ -1346,12 +1352,21 @@
   dependencies:
     "@types/node" "*"
 
-"@types/three@0.149.0":
-  version "0.149.0"
-  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.149.0.tgz#f48c03ffcf35b2d196f3532b51bc845e96f6090e"
-  integrity sha512-fgNBm9LWc65ER/W0cvoXdC0iMy7Ke9e2CONmEr6Jt8sDSY3sw4DgOubZfmdZ747dkPhbQrgRQAWwDEr2S/7IEg==
+"@types/stats.js@*":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@types/stats.js/-/stats.js-0.17.0.tgz#0ed81d48e03b590c24da85540c1d952077a9fe20"
+  integrity sha512-9w+a7bR8PeB0dCT/HBULU2fMqf6BAzvKbxFboYhmDtDkKPiyXYbjoe2auwsXlEFI7CFNMF1dCv3dFH5Poy9R1w==
+
+"@types/three@0.152.1":
+  version "0.152.1"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.152.1.tgz#6f2ce49f7647c78855bc32544cc3e72145aa65cb"
+  integrity sha512-PMOCQnx9JRmq+2OUGTPoY9h1hTWD2L7/nmuW/SyNq1Vbq3Lwt3MNdl3wYSa4DvLTGv62NmIXD9jYdAOwohwJyw==
   dependencies:
+    "@tweenjs/tween.js" "~18.6.4"
+    "@types/stats.js" "*"
     "@types/webxr" "*"
+    fflate "~0.6.9"
+    lil-gui "~0.17.0"
 
 "@types/webpack-env@^1.15.2":
   version "1.16.4"
@@ -1375,7 +1390,7 @@
   resolved "https://registry.npmmirror.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
-"@vue-reactivity/watch@^0.2.0":
+"@vue-reactivity/watch@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@vue-reactivity/watch/-/watch-0.2.0.tgz#48bed8e0e2ea9cef5c621db59b8db8a2e5829a80"
   integrity sha512-U1asJgKuzZveyIbohN2TuLL17fz1MfYwq1WqL51UDSDwQmQzP63aC7D1I6XyH7U3Tfgj8OoGr/tZIqqy+rns0A==
@@ -1715,12 +1730,12 @@
   dependencies:
     "@vue/shared" "3.2.33"
 
-"@vue/reactivity@3.2.47":
-  version "3.2.47"
-  resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.2.47.tgz#1d6399074eadfc3ed35c727e2fd707d6881140b6"
-  integrity sha512-7khqQ/75oyyg+N/e+iwV6lpy1f5wq759NdlS1fpAhFXa8VeAIKGgk2E/C4VF59lx5b+Ezs5fpp/5WsRYXQiKxQ==
+"@vue/reactivity@3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.3.4.tgz#a27a29c6cd17faba5a0e99fbb86ee951653e2253"
+  integrity sha512-kLTDLwd0B1jG08NBF3R5rqULtv/f8x3rOFByTDz4J53ttIQEDmALqKqXY0J+XQeN0aV2FBxY8nJDf88yvOPAqQ==
   dependencies:
-    "@vue/shared" "3.2.47"
+    "@vue/shared" "3.3.4"
 
 "@vue/runtime-core@3.2.33":
   version "3.2.33"
@@ -1752,10 +1767,10 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.33.tgz#69a8c99ceb37c1b031d5cc4aec2ff1dc77e1161e"
   integrity sha512-UBc1Pg1T3yZ97vsA2ueER0F6GbJebLHYlEi4ou1H5YL4KWvMOOWwpYo9/QpWq93wxKG6Wo13IY74Hcn/f7c7Bg==
 
-"@vue/shared@3.2.47":
-  version "3.2.47"
-  resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.47.tgz#e597ef75086c6e896ff5478a6bfc0a7aa4bbd14c"
-  integrity sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==
+"@vue/shared@3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.3.4.tgz#06e83c5027f464eef861c329be81454bc8b70780"
+  integrity sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==
 
 "@vue/test-utils@^2.0.0-0":
   version "2.0.0-rc.21"
@@ -3513,6 +3528,11 @@ faye-websocket@^0.11.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
+fflate@~0.6.9:
+  version "0.6.10"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.6.10.tgz#5f40f9659205936a2d18abf88b2e7781662b6d43"
+  integrity sha512-IQrh3lEPM93wVCEczc9SaAOvkmcoQn/G8Bo1e8ZPlY3X3bnAxWaBdvTdvM1hP62iZp0BXWDy4vTAy4fF0+Dlpg==
+
 figures@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
@@ -4390,6 +4410,11 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+lil-gui@~0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/lil-gui/-/lil-gui-0.17.0.tgz#b41ae55d0023fcd9185f7395a218db0f58189663"
+  integrity sha512-MVBHmgY+uEbmJNApAaPbtvNh1RCAeMnKym82SBjtp5rODTYKWtM+MXHCifLe2H2Ti1HuBGBtK/5SyG4ShQ3pUQ==
+
 lilconfig@^2.0.3:
   version "2.0.5"
   resolved "https://registry.npmmirror.com/lilconfig/-/lilconfig-2.0.5.tgz#19e57fd06ccc3848fd1891655b5a447092225b25"
@@ -4816,6 +4841,11 @@ mz@^2.4.0:
     any-promise "^1.0.0"
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
+
+n8ao@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/n8ao/-/n8ao-1.4.3.tgz#c6a3b39b8660f24e12be0c9c54ea6a4dca39e10c"
+  integrity sha512-O148n25UEbQAMiFKDi2pK8/kVMrqqArIQymOyrx7SWNjBXEERed6iZgn3AHMvekAB2KD8rXhNEJpqIbXMLhubg==
 
 nanoid@3.1.20:
   version "3.1.20"
@@ -5495,10 +5525,10 @@ postcss@^8.1.10, postcss@^8.2.6, postcss@^8.3.5, postcss@^8.4.7:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postprocessing@6.30.2:
-  version "6.30.2"
-  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.30.2.tgz#8cfb5561bfce63c983fae5d2cd8efa5bbd04fe6d"
-  integrity sha512-Vt77s5DkHyUOV4bmk10J46DHJLglBfIo9ARPI0o62UIAx9omANfuPJTKiLVoYlC1ApkV9y3ldBDipF3IldB7YA==
+postprocessing@6.31.0:
+  version "6.31.0"
+  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.31.0.tgz#0d3d0157bfe963d2a66a73ee16cfa81a99138419"
+  integrity sha512-h1g2KDVrTS6QB4AHP55opp8FYzq66jJHh4JIFCptaj283RUX1y/tPkv8FBB2oK4WYrdPgqvElnKrXZwgiLWeHQ==
 
 potpack@2.0.0, potpack@^2.0.0:
   version "2.0.0"
@@ -5510,10 +5540,10 @@ prelude-ls@~1.1.2:
   resolved "https://registry.npmmirror.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
 
-prettier@2.8.6:
-  version "2.8.6"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.6.tgz#5c174b29befd507f14b83e3c19f83fdc0e974b71"
-  integrity sha512-mtuzdiBbHwPEgl7NxWlqOkithPyp4VN93V7VeHVWBF+ad3I5avc0RVDT4oImXQy9H/AqxA2NSQH8pSxHW6FYbQ==
+prettier@2.8.8:
+  version "2.8.8"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
+  integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
 "prettier@^1.18.2 || ^2.0.0":
   version "2.6.2"
@@ -6394,10 +6424,10 @@ three-mesh-bvh@0.5.21:
   resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.5.21.tgz#e08f5f3052d624cce36d0975692949c02359832f"
   integrity sha512-TGXPk7YwtlU5rgQJYA25OT6yAdBMeekfC4BTkGNtTWA5glb2rmEpjxvhZncRQSl73QZir2LFOQT0FjfzgG55xw==
 
-three-mesh-bvh@0.5.23:
-  version "0.5.23"
-  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.5.23.tgz#08e5b629144b48b11acbd433519680e457d398ed"
-  integrity sha512-nyk+MskdyDgECqkxdv57UjazqqhrMi+Al9PxJN6yFtx1CTW4r0eCQ27FtyYKY5gCIWhxjtNfWYDPVy8lzx6LkA==
+three-mesh-bvh@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.6.0.tgz#15523c335383df658dc60063a783fdd52d045dc5"
+  integrity sha512-4/oXeqVMLuN9/P0M3L5ezIVrFiXQXKvjVTErkiSYMjSaPoWfNPAwqulSgLf4bIUPn8/Lq3rmIJwxbCuD8qDobA==
 
 three-mesh-bvh@^0.5.19:
   version "0.5.24"
@@ -6409,10 +6439,10 @@ three-subdivide@1.1.2:
   resolved "https://registry.yarnpkg.com/three-subdivide/-/three-subdivide-1.1.2.tgz#e29f770dcfc748096086e9a20a66d0b16905d171"
   integrity sha512-qcMX3vIyKiZecJQuDZFoIkImOFwMBT/SzdGwMwoL+48Pq/6r3+jVGIKOP03sMjK9bOQDy3wc1ZH+xiUaYk2aCw==
 
-three@0.150.0:
-  version "0.150.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.150.0.tgz#38a324c3976e07799671d06d99f01b02a2fe65c6"
-  integrity sha512-12oqqBZom9fb5HtX3rD8qPVnamojuiN5Os7r0x8s3HQ+WHRwnEyzl2XU3aEKocsDkG++rkE9+HWzx77O59NXtw==
+three@0.152.2:
+  version "0.152.2"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.152.2.tgz#2ee0f2c504d31a4bc29b45495c12bded9fda7bfc"
+  integrity sha512-Ff9zIpSfkkqcBcpdiFo2f35vA9ZucO+N8TNacJOqaEE6DrB0eufItVMib8bK8Pcju/ZNT6a7blE1GhTpkdsILw==
 
 thunky@^1.0.2:
   version "1.1.0"
