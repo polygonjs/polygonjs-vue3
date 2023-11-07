@@ -116,8 +116,8 @@ export default defineComponent({
 			default: true,
 		},
 		baseUrl: {
-			type: String,
-			default: "",
+			type: String as () => string,
+			default: "./",
 		},
 		keepAlive: {
 			type: Boolean,
