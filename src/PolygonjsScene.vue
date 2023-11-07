@@ -33,10 +33,7 @@ import {
 } from "vue";
 import { PolyScene } from "@polygonjs/polygonjs/dist/src/engine/scene/PolyScene";
 import { BaseViewerType } from "@polygonjs/polygonjs/dist/src/engine/viewers/_Base";
-import {
-	SceneJsonExporterData,
-	SceneJsonExporterDataProperties,
-} from "@polygonjs/polygonjs/dist/src/engine/io/json/export/Scene";
+import { SceneJsonExporterData } from "@polygonjs/polygonjs/dist/src/engine/io/json/export/Scene";
 import { PolyEventName } from "@polygonjs/polygonjs/dist/src/engine/poly/utils/PolyEventName";
 import { sanitizeUrl } from "@polygonjs/polygonjs/dist/src/core/UrlHelper";
 
